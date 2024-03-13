@@ -1,0 +1,5 @@
+89876 Lecturer 25000
+77717 Senior.Lecturer 80000
+77717 Professor 200000
+77717 Professor 90000
+2222 Lecturer 80000

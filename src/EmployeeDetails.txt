@@ -1,0 +1,6 @@
+E001 77717 Nusrath 20 13/10,Ragama nusrath@gmail.com Computer.Science Professor
+E002 89876 Cassim 19 1/A,colombp caasim@gmail.com Business.Administration Associate.Professor
+E005 1234 Yusra 23 12/A,ragama yusra@gmail.com Engineering Lecturer
+E003 1111 Amna 19 7/A,Dehiwala amna@gmail.com Social.Sciences Lecturer
+E005 7878 Jeesa 20 1/A,Dehiwala jeesa@gmail.com Business.Administration Instructor
+E006 2222 josh 21 12/A,colombo josh@gmail.com Engineering Lecturer

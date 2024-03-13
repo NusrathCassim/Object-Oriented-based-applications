@@ -1,0 +1,10 @@
+Computer.Science
+Business.Administration
+Engineering
+Humanities
+Natural.Sciences
+Social.Sciences
+Human.Resource
+Marketing
+Student.Affairs
+Marketing
