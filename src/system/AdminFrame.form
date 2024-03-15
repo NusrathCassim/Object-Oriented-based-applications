@@ -59,7 +59,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+              <AbsoluteConstraints x="0" y="0" width="300" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -134,8 +134,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="ADD">
-                    <Property name="tabTitle" type="java.lang.String" value="ADD"/>
+                  <JTabbedPaneConstraints tabName="ADD/REMOVE">
+                    <Property name="tabTitle" type="java.lang.String" value="ADD/REMOVE"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -153,7 +153,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="40" y="100" width="112" height="-1"/>
+                      <AbsoluteConstraints x="90" y="100" width="112" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -176,7 +176,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="80" y="180" width="120" height="-1"/>
+                      <AbsoluteConstraints x="70" y="180" width="120" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -189,7 +189,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="280" y="100" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="320" y="100" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -208,11 +208,11 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Trebuchet MS" size="18" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="ADD  NEW DESIGNATIONS AND DEPARTMENTS"/>
+                    <Property name="text" type="java.lang.String" value="ADD/ REMOVE NEW DESIGNATIONS AND DEPARTMENTS"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="59" y="35" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="30" y="10" width="440" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

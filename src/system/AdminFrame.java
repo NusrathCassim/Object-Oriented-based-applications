@@ -119,7 +119,7 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel3.setText("Designation");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(40, 100, 112, 18);
+        jLabel3.setBounds(90, 100, 112, 18);
 
         EmpDesignation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,12 +136,12 @@ public class AdminFrame extends javax.swing.JFrame {
             }
         });
         jPanel2.add(AddDesig);
-        AddDesig.setBounds(80, 180, 120, 23);
+        AddDesig.setBounds(70, 180, 120, 23);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel4.setText("Department");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(280, 100, 76, 18);
+        jLabel4.setBounds(320, 100, 76, 18);
 
         EmpDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,9 +152,9 @@ public class AdminFrame extends javax.swing.JFrame {
         EmpDepartment.setBounds(270, 130, 184, 22);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel5.setText("ADD  NEW DESIGNATIONS AND DEPARTMENTS");
+        jLabel5.setText("ADD/ REMOVE NEW DESIGNATIONS AND DEPARTMENTS");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(59, 35, 358, 21);
+        jLabel5.setBounds(30, 10, 440, 21);
 
         AddDep.setText("ADD_Dep");
         AddDep.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +165,7 @@ public class AdminFrame extends javax.swing.JFrame {
         jPanel2.add(AddDep);
         AddDep.setBounds(300, 180, 110, 23);
 
-        jTabbedPane1.addTab("ADD", jPanel2);
+        jTabbedPane1.addTab("ADD/REMOVE", jPanel2);
 
         jPanel5.setBackground(new java.awt.Color(252, 246, 245));
         jPanel5.setLayout(null);
@@ -280,67 +280,6 @@ public class AdminFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EmpDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpDepartmentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmpDepartmentActionPerformed
-
-    private void AddDesigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesigActionPerformed
-        if(EmpDesignation.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Fileds cannot be empty." ,"Add", 
-                    JOptionPane.WARNING_MESSAGE);
-        }
-        else{ 
-        String Designation=  EmpDesignation.getText();
-       
-       
-        DesignationClass desigFile = new DesignationClass(Designation);
-      
-
-        if (desigFile.addDesignation()) {
-            JOptionPane.showMessageDialog(null,"Added successfully" ,"Add a new info", JOptionPane.INFORMATION_MESSAGE);
-
-        } else {
-            JOptionPane.showMessageDialog(null,"Sorry! Something went wrong with the application, Will be fixing it soon." ,
-                "Add a new info",
-                JOptionPane.WARNING_MESSAGE);
-        }
-       }
-    }//GEN-LAST:event_AddDesigActionPerformed
-
-    private void EmpDesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpDesignationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmpDesignationActionPerformed
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()
-            || cmbUserType.getSelectedItem().toString().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null,"Fileds cannot be empty, When adding a new Employee." ,"Add a new Employee", 
-                    JOptionPane.WARNING_MESSAGE);
-        }
-       else {
-            
-            String Username = txtUsername.getText();
-            String Password = txtPassword.getText();
-            String UserType = cmbUserType.getSelectedItem().toString();
-            UserClass newUser = new UserClass(Username, Password, UserType);
-            if (newUser.addNewUser()) {
-                JOptionPane.showMessageDialog(null,"User Added successfully" ,"Add a new user", JOptionPane.INFORMATION_MESSAGE);
-             
-            } else {
-                JOptionPane.showMessageDialog(null,"Sorry! Something went wrong with the application, Will be fixing it soon." ,
-                        "Add a new User",
-                        JOptionPane.WARNING_MESSAGE);
-            }
-            
-        }
-    }//GEN-LAST:event_btnAddActionPerformed
-
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
                 Login frame = new Login();            
                 frame.show();
@@ -348,30 +287,89 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutActionPerformed
 
     private void showbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showbtnActionPerformed
-       initialSetup();
+        initialSetup();
     }//GEN-LAST:event_showbtnActionPerformed
 
-    private void AddDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDepActionPerformed
-     if(EmpDepartment.getText().isEmpty()){
-         
-            JOptionPane.showMessageDialog(null,"Fileds cannot be empty." ,"Add", 
-                    JOptionPane.WARNING_MESSAGE);
-     }    
-     else{    
-        String Department = EmpDepartment.getText();
-           DepartmentClass DepFile = new DepartmentClass(Department);
-           
-        if (DepFile.addDepartment()) {
-            JOptionPane.showMessageDialog(null,"Added successfully" ,"Add a new info", JOptionPane.INFORMATION_MESSAGE);
-
-        } else {
-            JOptionPane.showMessageDialog(null,"Sorry! Something went wrong with the application, Will be fixing it soon." ,
-                "Add a new info",
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()
+            || cmbUserType.getSelectedItem().toString().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null,"Fileds cannot be empty, When adding a new Employee." ,"Add a new Employee",
                 JOptionPane.WARNING_MESSAGE);
         }
-         
-     }  
+        else {
+
+            String Username = txtUsername.getText();
+            String Password = txtPassword.getText();
+            String UserType = cmbUserType.getSelectedItem().toString();
+            UserClass newUser = new UserClass(Username, Password, UserType);
+            if (newUser.addNewUser()) {
+                JOptionPane.showMessageDialog(null,"User Added successfully" ,"Add a new user", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                JOptionPane.showMessageDialog(null,"Sorry! Something went wrong with the application, Will be fixing it soon." ,
+                    "Add a new User",
+                    JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void AddDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDepActionPerformed
+        if(EmpDepartment.getText().isEmpty()){
+
+            JOptionPane.showMessageDialog(null,"Fileds cannot be empty." ,"Add",
+                JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            String Department = EmpDepartment.getText();
+            DepartmentClass DepFile = new DepartmentClass(Department);
+
+            if (DepFile.addDepartment()) {
+                JOptionPane.showMessageDialog(null,"Added successfully" ,"Add a new info", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                JOptionPane.showMessageDialog(null,"Sorry! Something went wrong with the application, Will be fixing it soon." ,
+                    "Add a new info",
+                    JOptionPane.WARNING_MESSAGE);
+            }
+
+        }
     }//GEN-LAST:event_AddDepActionPerformed
+
+    private void EmpDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpDepartmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmpDepartmentActionPerformed
+
+    private void AddDesigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesigActionPerformed
+        if(EmpDesignation.getText().isEmpty()){
+
+            JOptionPane.showMessageDialog(null,"Fileds cannot be empty." ,"Add",
+                JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            String Designation=  EmpDesignation.getText();
+
+            DesignationClass desigFile = new DesignationClass(Designation);
+
+            if (desigFile.addDesignation()) {
+                JOptionPane.showMessageDialog(null,"Added successfully" ,"Add a new info", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                JOptionPane.showMessageDialog(null,"Sorry! Something went wrong with the application, Will be fixing it soon." ,
+                    "Add a new info",
+                    JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_AddDesigActionPerformed
+
+    private void EmpDesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpDesignationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmpDesignationActionPerformed
 
     
     public static void main(String args[]) {
