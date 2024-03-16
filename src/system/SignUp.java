@@ -54,6 +54,7 @@ public class SignUp extends javax.swing.JFrame {
         Register = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 500));
@@ -101,28 +102,38 @@ public class SignUp extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(164, 25, 61));
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 500));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(252, 246, 245));
         jLabel3.setText("Sign-Up");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 48, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(252, 246, 245));
         jLabel4.setText("Username");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 113, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(252, 246, 245));
         jLabel5.setText("Password");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 165, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(252, 246, 245));
         jLabel6.setText("Confirm Password");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 223, -1, -1));
 
         cmbusertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "HR" }));
+        jPanel2.add(cmbusertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 287, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(252, 246, 245));
         jLabel7.setText("User Type");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 289, -1, -1));
+        jPanel2.add(signUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 137, 239, -1));
+        jPanel2.add(signPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 189, 239, -1));
+        jPanel2.add(signCpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 247, 239, -1));
 
         Register.setBackground(new java.awt.Color(252, 246, 245));
         Register.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -133,9 +144,10 @@ public class SignUp extends javax.swing.JFrame {
                 RegisterActionPerformed(evt);
             }
         });
+        jPanel2.add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 337, 92, -1));
 
-        jLabel8.setForeground(new java.awt.Color(252, 246, 245));
         jLabel8.setText("I have an account");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 407, -1, -1));
 
         jButton2.setText("LogIn");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -143,77 +155,11 @@ public class SignUp extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 404, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(signCpass)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmbusertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(signUser, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                                    .addComponent(signPass))))
-                        .addGap(87, 87, 87))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(133, 133, 133))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(Register, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(152, 152, 152))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel3)
-                .addGap(23, 23, 23)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(signUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(signPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(signCpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cmbusertype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(Register)
-                .addGap(42, 42, 42)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton2))
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\nusra\\Downloads\\pattern.png")); // NOI18N
+        jLabel9.setToolTipText("");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(400, 0, 400, 500);
@@ -241,6 +187,7 @@ public class SignUp extends javax.swing.JFrame {
         LoginFrame.setVisible(true);
         LoginFrame.pack();
         LoginFrame.setLocationRelativeTo(null);
+        this.dispose(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public boolean checkAvailability(){
@@ -347,6 +294,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

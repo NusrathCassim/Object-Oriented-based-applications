@@ -2,7 +2,6 @@ Professor
 Lecturer
 Senior.Lecturer
 Instructor
-Dean
 Head.of.Department
 Academic.Coordinator
 Program Coordinator

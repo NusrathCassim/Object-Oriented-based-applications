@@ -69,10 +69,45 @@ public class Filehandling extends DataHandler{
         return null;
     }
      
-    
-      
-      
-      
-      
-      
+       public boolean removeDataFromAFile(String recordToRemove) {
+        if (!file.exists()) {
+            java.lang.System.out.println("File does not exist. Please create a new file.");
+            return false;
+        }
+
+        File tempFile = new File(FILE_PATH + "temp_" + fileName);
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.contains(recordToRemove)) {
+                    writer.write(line);
+                    writer.newLine();
+                }
+            }
+
+            reader.close();
+            writer.close();
+
+            if (file.delete()) {
+                if (tempFile.renameTo(file)) {
+                    java.lang.System.out.println("File updated successfully.");
+                    return true;
+                } else {
+                    java.lang.System.out.println("Failed to update file.");
+                }
+            } else {
+               java.lang. System.out.println("Failed to delete file.");
+            }
+
+        } catch (IOException e) {
+            java.lang.System.out.println("Something went wrong with deleting data from the file" + e);
+        }
+
+        return false;
+    }
+     
 }
