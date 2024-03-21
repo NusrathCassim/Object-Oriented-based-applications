@@ -3,3 +3,4 @@
 77717 Professor 200000
 77717 Professor 90000
 2222 Lecturer 80000
+12121 Instructor 50000

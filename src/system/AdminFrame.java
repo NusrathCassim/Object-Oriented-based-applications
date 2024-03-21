@@ -8,7 +8,14 @@ import ClassPackages.DesignationClass;
 import ClassPackages.EmpClass;
 import ClassPackages.Filehandling;
 import ClassPackages.UserClass;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class AdminFrame extends javax.swing.JFrame {
@@ -18,21 +25,6 @@ public class AdminFrame extends javax.swing.JFrame {
     
         
     }
-    private void initialSetup() {
-     
-        EmpClass employeeClass = new EmpClass();      
-              
-        String empTableTitle = "EmployeeId \t EPF \t Name \t Age \tEmail \t\t Address\t\t Department \t\t Designation \n"
-                                
-                               ;
-        EmpDetail.setText(empTableTitle + employeeClass.viewAllEmployees());
-        
-     
-    }
-  
-    
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,11 +45,6 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        EmpDetail = new javax.swing.JTextArea();
-        showbtn = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         EmpDesignation = new javax.swing.JTextField();
@@ -68,6 +55,11 @@ public class AdminFrame extends javax.swing.JFrame {
         AddDep = new javax.swing.JButton();
         removedesig = new javax.swing.JButton();
         removeDep = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        showbtn = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        EmpDataTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,20 +84,17 @@ public class AdminFrame extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 170, -1));
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 170, -1));
 
         logout.setText("LOG-OUT");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -116,10 +105,10 @@ public class AdminFrame extends javax.swing.JFrame {
         jPanel4.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\nusra\\Downloads\\pattern.png")); // NOI18N
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 510));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 510));
 
         jPanel1.add(jPanel4);
-        jPanel4.setBounds(0, 0, 300, 500);
+        jPanel4.setBounds(0, 0, 260, 500);
 
         jTabbedPane1.setBackground(new java.awt.Color(252, 246, 245));
         jTabbedPane1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -172,50 +161,6 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ACCESS RIGHTS", jPanel5);
 
-        jPanel3.setBackground(new java.awt.Color(252, 246, 245));
-
-        EmpDetail.setColumns(20);
-        EmpDetail.setRows(5);
-        EmpDetail.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153)));
-        jScrollPane1.setViewportView(EmpDetail);
-
-        showbtn.setText("SHOW");
-        showbtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, null, java.awt.Color.gray, java.awt.Color.lightGray));
-        showbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showbtnActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
-        jLabel9.setText("EMPLOYEE DETAILS");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(showbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel9)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(showbtn)
-                .addContainerGap(127, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("EMP DETAILS", jPanel3);
-
         jPanel2.setBackground(new java.awt.Color(252, 246, 245));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, java.awt.Color.lightGray, java.awt.Color.darkGray));
         jPanel2.setLayout(null);
@@ -262,7 +207,6 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel5.setBounds(30, 10, 440, 21);
 
         AddDep.setText("ADD");
-        AddDep.setActionCommand("ADD");
         AddDep.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.gray, java.awt.Color.darkGray, java.awt.Color.lightGray));
         AddDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,8 +238,38 @@ public class AdminFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("ADD/REMOVE", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(252, 246, 245));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        showbtn.setText("SHOW");
+        showbtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, null, java.awt.Color.gray, java.awt.Color.lightGray));
+        showbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showbtnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(showbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 64, -1));
+
+        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        jLabel9.setText("EMPLOYEE DETAILS");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 23, -1, -1));
+
+        EmpDataTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Employee ID", "EPF NO", "Name", "Age", "Address", "E-mail", "Department", "Designation"
+            }
+        ));
+        jScrollPane6.setViewportView(EmpDataTable);
+
+        jPanel3.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 520, 240));
+
+        jTabbedPane1.addTab("EMP DETAILS", jPanel3);
+
         jPanel1.add(jTabbedPane1);
-        jTabbedPane1.setBounds(300, 0, 500, 500);
+        jTabbedPane1.setBounds(260, 0, 540, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -319,7 +293,29 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutActionPerformed
 
     private void showbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showbtnActionPerformed
-        initialSetup();
+         String filepath = "C:\\Users\\nusra\\OneDrive\\Documents\\NetBeansProjects\\System\\src\\EmployeeDetails.txt";
+         File file = new File(filepath); 
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filepath));
+//            String fistLine = br.readLine().trim();
+//            String[] ColumnsName = fistLine.split("/");
+            DefaultTableModel model = (DefaultTableModel)EmpDataTable.getModel();
+//            model.setColumnIdentifiers(ColumnsName);
+            
+            // Clear existing data from the JTable
+            model.setRowCount(0);
+            
+            Object[] tableLine = br.lines().toArray();
+            for(int i=0; i<tableLine.length; i++){
+                String line = tableLine[i].toString().trim();
+                String[] dataRow = line.split(",");
+                model.addRow(dataRow);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HRframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_showbtnActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -471,9 +467,9 @@ public class AdminFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddDep;
     private javax.swing.JButton AddDesig;
+    private javax.swing.JTable EmpDataTable;
     private javax.swing.JTextField EmpDepartment;
     private javax.swing.JTextField EmpDesignation;
-    private javax.swing.JTextArea EmpDetail;
     private javax.swing.JButton btnAdd;
     private javax.swing.JComboBox<String> cmbUserType;
     private javax.swing.JLabel jLabel1;
@@ -492,7 +488,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logout;
     private javax.swing.JButton removeDep;

@@ -2,8 +2,8 @@ Professor
 Lecturer
 Senior.Lecturer
 Instructor
-Head.of.Department
 Academic.Coordinator
 Program Coordinator
 student
 Security
+Dean

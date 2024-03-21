@@ -8,9 +8,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class HRframe extends javax.swing.JFrame {
@@ -20,15 +22,15 @@ public class HRframe extends javax.swing.JFrame {
         fillDepComboFromAFile();
          fillComboFromAFile();
     }
-    private void initialSetup() {
-     
-        EmpClass employeeClass = new EmpClass();      
-              
-        String empTableTitle = "EmployeeId \t EPF \t Name \t Age \tEmail \t\t Address\t\t Department \t\tDesignation \n"
-                                
-                               ;
-        EmpDetail.setText(empTableTitle + employeeClass.viewAllEmployees());
-    }
+//    private void initialSetup() {
+//     
+//        EmpClass employeeClass = new EmpClass();      
+//              
+//        String empTableTitle = "EmployeeId \t EPF \t Name \t Age \t Email \t Address \t Department \t Designation \n"
+//                                
+//                               ;
+//        EmpDetail.setText(empTableTitle + employeeClass.viewAllEmployees());
+//    }
      private void ShowDesig() {
      
         DesignationClass Desig = new DesignationClass();      
@@ -111,8 +113,6 @@ public class HRframe extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        EmpDetail = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         txtEmpID = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -132,6 +132,8 @@ public class HRframe extends javax.swing.JFrame {
         show = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         epfNo = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        EmpDataTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -246,12 +248,6 @@ public class HRframe extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(625, 590));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        EmpDetail.setColumns(20);
-        EmpDetail.setRows(5);
-        jScrollPane1.setViewportView(EmpDetail);
-
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 244, 550, 185));
-
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel3.setText("Employee ID ");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 22, -1, -1));
@@ -324,6 +320,18 @@ public class HRframe extends javax.swing.JFrame {
         jLabel13.setText("EPF NO");
         jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 183, -1, -1));
         jPanel4.add(epfNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 180, 104, -1));
+
+        EmpDataTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Employee ID", "EPF NO", "Name", "Age", "Address", "E-mail", "Department", "Designation"
+            }
+        ));
+        jScrollPane6.setViewportView(EmpDataTable);
+
+        jPanel4.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 530, 210));
 
         jTabbedPane1.addTab("Add Details", jPanel4);
 
@@ -575,7 +583,32 @@ public class HRframe extends javax.swing.JFrame {
     }//GEN-LAST:event_LOGOUTActionPerformed
 
     private void showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showActionPerformed
-        initialSetup();
+//        initialSetup();
+  
+        String filepath = "C:\\Users\\nusra\\OneDrive\\Documents\\NetBeansProjects\\System\\src\\EmployeeDetails.txt";
+         File file = new File(filepath); 
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filepath));
+//            String fistLine = br.readLine().trim();
+//            String[] ColumnsName = fistLine.split("/");
+            DefaultTableModel model = (DefaultTableModel)EmpDataTable.getModel();
+//            model.setColumnIdentifiers(ColumnsName);
+            
+            // Clear existing data from the JTable
+            model.setRowCount(0);
+            
+            Object[] tableLine = br.lines().toArray();
+            for(int i=0; i<tableLine.length; i++){
+                String line = tableLine[i].toString().trim();
+                String[] dataRow = line.split(",");
+                model.addRow(dataRow);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HRframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
     }//GEN-LAST:event_showActionPerformed
 
     private void ShowDesigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowDesigActionPerformed
@@ -634,8 +667,10 @@ public class HRframe extends javax.swing.JFrame {
             else
             {
                 EmpClass employee = new EmpClass();
-                String empTableTitle = "EmployeeId \t Name \t Age \tAddress \t Email\n"
-                 + " ---------------------------------------------------------------------------------------------------------------------\n";
+                String empTableTitle = """
+                                       EmployeeId \t Name \t Age \tAddress \t Email
+                                        ---------------------------------------------------------------------------------------------------------------------
+                                       """;
                 if (employee.searchEmployee(EPF,Designation,Department))
                 {
                     TextAreaSearch.setText(empTableTitle + employee.getEmployeeId()+ "\t" +
@@ -713,7 +748,7 @@ public class HRframe extends javax.swing.JFrame {
     private javax.swing.JTextArea Adesi;
     private javax.swing.JComboBox<String> CmbDepartment;
     private javax.swing.JComboBox<String> CmbDesignation;
-    private javax.swing.JTextArea EmpDetail;
+    private javax.swing.JTable EmpDataTable;
     private javax.swing.JButton LOGOUT;
     private javax.swing.JButton Search;
     private javax.swing.JButton ShowDep;
@@ -749,11 +784,11 @@ public class HRframe extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton show;
     private javax.swing.JTextArea txtAddress;

@@ -14,7 +14,7 @@ public class EmpClass extends DepartmentClass{
     public String Designation;
     private int EmployeeCount;
     
-    Filehandling EmpFile = new Filehandling("EmployeeDetails.txt");
+    public Filehandling EmpFile = new Filehandling("EmployeeDetails.txt");
 
     public EmpClass() {
          super("");
@@ -117,7 +117,7 @@ public class EmpClass extends DepartmentClass{
         
         if(!EmpFile.createANewFile())
         {
-            String record = EmployeeId +" "+ EPF+" " + EmployeeName + " " + Age + " " +Email+" "+ Address+" " + Department + " "+ Designation;
+            String record = EmployeeId +","+ EPF+","+ EmployeeName + "," + Age + ","+Email+","+ Address+","+ Department +","+ Designation;
            
             return EmpFile.writeDataToFile(record);
         }
@@ -134,7 +134,7 @@ public class EmpClass extends DepartmentClass{
         String employee;
         outerloop:
         while ((employee = bufferedReader.readLine()) != null) {
-            words = employee.split(" ");
+            words = employee.split(",");
             int empf = Integer.parseInt(words[1]);
             if (empf == EPF) {
                 isFound = true;
@@ -164,7 +164,7 @@ public class EmpClass extends DepartmentClass{
         String employee;
         outerloop:
         while ((employee = bufferedReader.readLine()) != null) {
-            words = employee.split(" ");
+            words = employee.split(",");
             int empf = Integer.parseInt(words[1]);
             if (empf == EPF) {
                 isFound = true;
@@ -193,9 +193,9 @@ public class EmpClass extends DepartmentClass{
         try {
             while ((Employee = bufferedReader.readLine()) != null)
             {     
-                words = Employee.split(" ");
+                words = Employee.split(",");
                 allEmployee = allEmployee + words[0] + "\t" + words[1] + "\t" + words[2] + "\t" + words[3] +
-                "\t"+words[4]+"\t\t"+ words[5] +"\t"+ words[6] + "\t"+ words[7] +"\n";             
+                "\t"+words[4]+"\t"+ words[5] +"\t\t"+ words[6] + "\t"+ words[7] +"\n";             
                 count++;               
             }
         } catch (IOException e){

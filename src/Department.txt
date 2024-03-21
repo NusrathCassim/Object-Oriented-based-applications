@@ -8,3 +8,4 @@ Human.Resource
 Marketing
 Student.Affairs
 Marketing
+Finance
