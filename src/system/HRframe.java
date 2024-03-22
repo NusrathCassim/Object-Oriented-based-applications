@@ -668,14 +668,14 @@ public class HRframe extends javax.swing.JFrame {
             {
                 EmpClass employee = new EmpClass();
                 String empTableTitle = """
-                                       EmployeeId \t Name \t Age \tAddress \t Email
+                                       EmployeeId \tName \tAge \tAddress \tEmail 
                                         ---------------------------------------------------------------------------------------------------------------------
                                        """;
                 if (employee.searchEmployee(EPF,Designation,Department))
                 {
                     TextAreaSearch.setText(empTableTitle + employee.getEmployeeId()+ "\t" +
                                             employee.getEmployeeName()+ "\t" +employee.getAge()+ "\t"
-                                           + employee.getEmail() + "\t" + employee.getAddress());  
+                                           + employee.getEmail() + "\t" +employee.getAddress());  
                 }
                 else
                 {
